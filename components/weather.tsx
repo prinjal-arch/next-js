@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-
+import {apiKey} from "../config/config.js"
 interface WeatherData {
   name: string;
   current: {
@@ -16,7 +16,7 @@ const Weather: React.FC = () => {
   const GetData = async () => {
     try {
       const response = await fetch(
-        `https://api.weatherapi.com/v1/current.json?key=2f88c6cbb5b148b59d7101541240204&q=${city}`
+        `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`
       );
       const weather: WeatherData = await response.json();
       console.log(weather);
